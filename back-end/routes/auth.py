@@ -34,8 +34,10 @@ def signJsonWebToken(username: str) -> str:
     return token
 def verify_jwt_token(token: str) -> bool:
     try:
+        data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"])
+        expiry = datetime.strptime(data['expiry'], "%Y-%m-%d %H:%M:%S")
         payload = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"])
-        return True
+        return expiry >= datetime.now();
     except:
         return False
     return False
@@ -81,10 +83,13 @@ def signup(credentials: SignUpCredentials, req: Request, res: Response):
         return JSONResponse(content={'message':response['message'], 'token':response['token']}, status_code=200)
     return JSONResponse(content={'message':response['message']}, status_code=response['status_code'])
 
-@auth_router.post("/verify-cookie")
-def verify_cookie(jwt_token:Token):
-    if not jwt_token or not verify_jwt_token(jwt_token.dict()['token']):
+@auth_router.get("/fetch-user")
+def verify_token(req: Request):
+    if not 'auth-token' in req.headers:
+        return JSONResponse(content = {'message':'token not found in headers'}, status_code=403)
+    token = req.headers['auth-token']
+    print(token)
+    if not token or not verify_jwt_token(token):
         return JSONResponse(content = {'message':'token is invalid'}, status_code=403)
     data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"])
-    print(data)
-    return JSONResponse(content = {'message':'token is valid'}, status_code=200)
+    return JSONResponse(content = {'message':'token is valid', 'username':data['username']}, status_code=200)
