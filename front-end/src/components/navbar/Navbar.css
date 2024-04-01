@@ -1,0 +1,25 @@
+.navbar-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+.navbar-list-item {
+    margin: 2px 10px;
+}
+
+nav {
+    margin: 0px;
+    padding: 0px 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    display:flex;
+}
+nav span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
