@@ -15,6 +15,16 @@ nav {
     justify-content: space-between;
 }
 
+.sign-in-btn {
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+}
+.sign-in-btn:hover {
+    transform: scale(1.1);
+}
+
 h1 {
     display:flex;
 }

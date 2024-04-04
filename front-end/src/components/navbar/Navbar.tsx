@@ -1,6 +1,12 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-export default function Navbar() {
+
+interface NavbarProps {
+  OpenSignInBox: () => void
+}
+
+
+export default function Navbar(props:NavbarProps) {
   return (
     <nav className="navbar">
         <span>
@@ -17,7 +23,7 @@ export default function Navbar() {
               </li>
             </ul>
         </span>
-        <span><h3>sign in</h3></span>
+        <span><h3><button className="sign-in-btn" onClick={props.OpenSignInBox}>Sign In</button></h3></span>
     </nav>
   )
 }

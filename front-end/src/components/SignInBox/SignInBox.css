@@ -1,0 +1,42 @@
+.SignInBox {
+    background-color: black;
+    display: flex;
+    place-items: center;
+    position: fixed;;
+    max-width: 400px;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sign-in-box-btn {
+    background-color: transparent;
+}
+
+.sign-in-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sign-in-elements {
+    margin: 5px;
+}
+
+.sign-in-label {
+    color: white;
+}
+
+.sign-in-input {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.open-sign-in-box {
+    transform: scale(1);
+}
+
+.close-sign-in-box {
+    transform: scale(0);
+}
