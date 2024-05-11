@@ -1,35 +1,83 @@
-.SignInBox {
-    background-color: black;
+.sign-in-container {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
+.sign-in-container-visible {
     display: flex;
-    place-items: center;
-    position: fixed;;
+}
+.sign-in-container-hidden {
+    display: none;
+}
+.sign-in-title {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sign-in-box {
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    filter: none;
+    position: fixed;
+    left: 30%;
+    right: 30%;
+    top:20%;
     max-width: 400px;
     flex-direction: column;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
+    z-index: 50;
+}
+
+.sign-in-box-btn-container {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .sign-in-box-btn {
+    border-radius: 5px;
+    padding: 5px 2px;
     background-color: transparent;
 }
 
+
 .sign-in-form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
 }
 
 .sign-in-elements {
-    margin: 5px;
+    margin: 10px;
+    padding: 10px 2px;
+}
+
+.sign-in-close-btn {
+    border-radius: 50%;
+    background-color: red;
+    width: 40px;
+    height: 30px;
 }
 
 .sign-in-label {
-    color: white;
+    text-align: right;
 }
 
 .sign-in-input {
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -39,4 +87,18 @@
 
 .close-sign-in-box {
     transform: scale(0);
+}
+
+@media only screen and (max-width: 660px) {
+    .sign-in-box {
+        left: 20%;
+        right: 20%;
+    }
+    
+}
+@media only screen and (max-width: 420px) {
+    .sign-in-box {
+        left: 5%;
+        right: 5%;
+    }
 }

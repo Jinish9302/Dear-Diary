@@ -21,7 +21,10 @@ function App() {
           <Route path="/ToDo" element={<ToDoList/>} />
           <Route path="/Diary" element={<Diary/>} />
         </Routes>
-        {<SignInBox close={() => setBoxVisibility(false)} boxVisibility={boxVisibility}/>}
+        <SignInBox 
+          close={() => setBoxVisibility(false)} 
+          boxVisibility={boxVisibility}
+        />
       <Footer />
     </>
   );
